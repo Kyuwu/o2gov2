@@ -1,0 +1,29 @@
+#container {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.register-header {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.register-subheader {
+  margin-bottom: 25px;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: rgba(237,136,33,1) !important;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-state-edit {
+  background-color: rgba(237,136,33,1) !important;
+}
+
+::ng-deep .mat-vertical-content-container {
+  margin-left: 0 !important;
+}

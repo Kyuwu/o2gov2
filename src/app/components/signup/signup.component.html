@@ -1,0 +1,44 @@
+<ion-content [fullscreen]="true" class="vertical-center">
+  <form id="container" class="form-signin" [formGroup]="signupForm" (ngSubmit)="register()">
+    <h1 class="text-center register-header">REGISTER</h1>
+    <h2 class="text-center register-subheader">ACCOUNT DETAILS</h2>
+    <ion-item color="dark">
+      <ion-input type="email" class="form-control" formControlName="email" placeholder="Email..." required></ion-input>
+    </ion-item>
+    <ion-item color="dark">
+      <ion-input type="password" class="form-control" formControlName="password" placeholder="Password..." required>
+      </ion-input>
+    </ion-item>
+    <ion-item color="dark">
+      <ion-input type="password" class="form-control" formControlName="confirm_password"
+        placeholder="Repeat password..." required></ion-input>
+    </ion-item>
+    <ion-item color="dark">
+      <ion-input type="text" class="form-control" formControlName="firstName" placeholder="First name..." required>
+      </ion-input>
+    </ion-item>
+    <ion-item color="dark">
+      <ion-input type="text" class="form-control" formControlName="lastName" placeholder="Last name..." required>
+      </ion-input>
+    </ion-item>
+    <ion-item color="dark">
+      <ion-input type="text" class="form-control" formControlName="street" placeholder="Street..." required>
+      </ion-input>
+    </ion-item>
+    <ion-item color="dark">
+      <ion-input type="text" class="form-control" formControlName="postalCode" placeholder="Postalcode..." required>
+      </ion-input>
+    </ion-item>
+    <ion-item color="dark">
+      <ion-input type="text" class="form-control" formControlName="housenumber" placeholder="Housenumber..." required>
+      </ion-input>
+    </ion-item>
+    <ion-item color="dark">
+      <ion-input type="text" class="form-control" formControlName="city" placeholder="City..." required>
+      </ion-input>
+    </ion-item>
+
+    <ion-button color="light" [disabled]="!signupForm.valid" type="submit">CONTINUE</ion-button>
+    <ion-button color="light" (click)="home()">GO BACK</ion-button>
+  </form>
+</ion-content>

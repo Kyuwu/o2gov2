@@ -1,0 +1,42 @@
+<app-menu [menu]="true" state="menu"></app-menu>
+<div class="ion-page" id="main-content">
+  <app-menu-header title="Home menu"></app-menu-header>
+  <ion-content [fullscreen]="true" class="vertical-center">
+    <div class="edit-profile">
+      <ion-text class="header">
+        <h1 class="text-center">ACCOUNT SETTINGS</h1>
+      </ion-text>
+      <form id="container" class="form-signin" [formGroup]="editUserForm">
+        <ion-item color="dark">
+          <ion-input type="text" class="form-control" formControlName="email" label="Email:" required>
+          </ion-input>
+        </ion-item>
+        <ion-item color="dark">
+          <ion-input type="text" class="form-control" formControlName="firstName" label="First name:" required>
+          </ion-input>
+        </ion-item>
+        <ion-item color="dark">
+          <ion-input type="text" class="form-control" formControlName="lastName" label="Last name:" required>
+          </ion-input>
+        </ion-item>
+        <ion-item color="dark">
+          <ion-input type="text" class="form-control" formControlName="city" label="City:" required>
+          </ion-input>
+        </ion-item>
+        <ion-item color="dark">
+          <ion-input type="text" class="form-control" formControlName="street" label="Street:" required>
+          </ion-input>
+        </ion-item>
+        <ion-item color="dark">
+          <ion-input type="text" class="form-control" formControlName="housenumber" label="Housenumber:"
+            required></ion-input>
+        </ion-item>
+        <ion-item color="dark">
+          <ion-input type="text" class="form-control" formControlName="postalCode" label="Postal code:"
+            required></ion-input>
+        </ion-item>
+        <ion-button color="light" [disabled]="!editUserForm.valid" (click)="submit()">UPDATE USER</ion-button>
+        <ion-button color="light" (click)="home()">GO BACK</ion-button>
+      </form>
+    </div>
+  </ion-content>

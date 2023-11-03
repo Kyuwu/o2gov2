@@ -1,0 +1,35 @@
+<ion-menu contentId="main-content" class="menu">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>{{currentUser.email}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button [disabled]="state.match('menu')" (click)="home()" color="dark">Home</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button [disabled]="state.match('contracts')" (click)="contracts()" color="dark">Contracts</ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button [disabled]="state.match('scooters')" (click)="scooters()" color="dark">Scooters</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button [disabled]="state.match('services')" (click)="services()" color="dark">
+            Services</ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button [disabled]="state.match('settings')" (click)="settings()" color="dark">
+            Settings</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  <ion-button color="light" (click)="logout()">LOGOUT</ion-button>
+</ion-menu>

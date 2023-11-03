@@ -1,0 +1,25 @@
+<ion-content [fullscreen]="true" class="vertical-center">
+  <form class="form-signin center" [formGroup]="signinForm" (ngSubmit)="login()">
+    <ion-img class="vertical-center" src="../../../assets/orange.png"></ion-img>
+    <ion-item color="dark">
+      <ion-input
+        type="email"
+        formControlName="email"
+        placeholder="Enter email..."
+        ngModel 
+      ></ion-input>
+    </ion-item>
+    <ion-item color="dark">
+      <ion-input
+        type="password"
+        formControlName="password"
+        placeholder="Enter password..."
+        ngModel 
+      ></ion-input>
+    </ion-item>
+    <ion-button color="light" type="submit" [disabled]="!signinForm.valid">LOGIN</ion-button>
+    <ion-button color="light" type="button" (click)="googleLogin()" >Google Login</ion-button>
+    <p class="no-account-yet">No account yet?</p>
+    <ion-button color="light" (click)="navigate()">REGISTER</ion-button>
+  </form>
+</ion-content>

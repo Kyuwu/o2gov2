@@ -1,0 +1,44 @@
+<app-menu [state]="'contracts'"></app-menu>
+<div class="ion-page" id="main-content">
+  <app-menu-header title="Contracts"></app-menu-header>
+  <ion-content [fullscreen]="true" class="vertical-center">
+    <div class="contract-profile">
+      <ion-text class="header">
+        <h1 class="text-center">SCOOTER CONTRACTS</h1>
+      </ion-text>
+      <mat-accordion *ngIf="currentUser.scooter; else noScooter">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Scooter: {{currentUser.scooter.brand}} - {{currentUser.scooter.licensePlate}} <br> 
+              Scooter year: {{currentUser.scooter.year}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <ion-card>
+            <ion-card-header id="#scooter-header">
+              Description: {{currentUser.scooter.description}}
+              Max km/h: {{currentUser.scooter.maxKmh}}
+              <ion-card-subtitle>
+                <h3>
+                  Startdate: {{startDate}}<br>
+                  Enddate: {{endDate}}<br>
+                  Price per month: €{{currentUser.scooter.price}}
+                </h3>
+              </ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-button (click)="confirm()">STOP CONTRACT</ion-button>
+            </ion-card-content>
+          </ion-card>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <ng-template #noScooter>
+        <h3>NO SCOOTER CONTRACT YET</h3>
+      </ng-template>
+      <ion-button (click)="home()" color="light">BACK</ion-button>
+    </div>
+  </ion-content>
+
+
+
+</div>

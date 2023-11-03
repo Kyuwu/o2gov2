@@ -1,0 +1,29 @@
+<app-menu [menu]="true" state="menu"></app-menu>
+<div class="ion-page" id="main-content">
+<app-menu-header title="Home menu"></app-menu-header>
+  <ion-content [fullscreen]="true" class="vertical-center">
+    <div class="user-profile">
+      <ion-text class="header">
+        <h1 class="text-center">WELCOME ADMIN</h1>
+      </ion-text>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <ion-button (click)="scooters()" color="dark">Manage Scooters</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-button color="dark">Planned Services</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div class="news">
+        <h2 class="news-title">NEWS</h2>
+        <ion-button color="light">Newstitle 1</ion-button>
+        <ion-button color="light">Newstitle 2</ion-button>
+        <ion-button color="light">Newstitle 3</ion-button>
+      </div>
+    </div>
+  </ion-content>
+</div>
