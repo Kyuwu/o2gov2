@@ -22,7 +22,8 @@ export class AuthService {
 			this.router.navigate(['/log-in']);
 			return user;
 		} catch (e) {
-			return null;
+			this.snack.delete("User already exists or you have no internet... ","")
+			return null
 		}
 	}
 		

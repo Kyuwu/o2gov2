@@ -11,4 +11,4 @@ To run, you'll need:<br>
 the admin@o2go.nl is the only admin in my database so check that account out for the scooter CRUD and planned services!
 
 1. test@o2go.nl pw: Test123!
-2. adming@o2go.nl pw: Admin123!
+2. admin@o2go.nl pw: Admin123!
