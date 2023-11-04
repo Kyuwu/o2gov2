@@ -3,7 +3,7 @@ import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialog } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { ServicesService } from 'src/app/shared/services/services.service';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
-import { Service } from '../shared/models/service';
+import { Service } from '../../../../shared/models/service';
 
 @Component({
   selector: 'app-planned-services',

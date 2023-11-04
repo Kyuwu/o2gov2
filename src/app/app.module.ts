@@ -68,7 +68,7 @@ import { ConfirmationDialog } from './shared/components/confirm-dialog/confirm-d
 import { FileuploadService } from './shared/services/fileupload.service';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireModule } from '@angular/fire/compat';
-import { PlannedServicesComponent } from './planned-services/planned-services.component';
+import { PlannedServicesComponent } from './components/user-profile/dashboard/planned-services/planned-services.component';
 @NgModule({
   declarations: [
     AppComponent,
