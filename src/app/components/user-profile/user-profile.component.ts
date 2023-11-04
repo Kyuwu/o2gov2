@@ -17,6 +17,7 @@ import { Subscription } from 'rxjs';
 export class UserProfileComponent implements OnInit {
   currentUser: User;
   sub1: Subscription
+  sub2: Subscription
   constructor(
     public authService: AuthService,
     public router: Router,
@@ -39,8 +40,23 @@ export class UserProfileComponent implements OnInit {
         localStorage.setItem('user', JSON.stringify(userfetch));
       }
     });
-  }
 
+    this.sub2 = this.auth.getUserById(id)
+    .subscribe(userfetch => {
+      // if the user doesn't exists, return to login page
+      if (!userfetch) {
+        this.router.navigate(['/log-in']);
+      } else {
+        this.currentUser = userfetch;
+        if(this.currentUser.admin === true) {
+          // if the user is an admin, redirect to admin dashboaard
+          this.router.navigate([`dashboard/${this.currentUser.id}`]);
+        }
+        localStorage.setItem('user', JSON.stringify(userfetch));
+      }
+    });
+  }
+  //page navigators
   contracts() {
     this.router.navigate([`/user-profile/${this.currentUser.id}/contracts`])
   }

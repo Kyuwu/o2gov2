@@ -35,6 +35,8 @@ export class FileuploadService {
 
   constructor(private storage: AngularFireStorage) {}
 
+
+  //function that uploads given DataUri to firebase storage and returns a downloadURL to save database space
   push(photo: string, path: string): string {
     const filePath = `${this.basePath}/${path}`;
     console.log(photo)
@@ -52,6 +54,7 @@ export class FileuploadService {
   }
 
 
+  //deleted file from firebase storage with given name
   deleteFileStorage(name: string): void {
     const storageRef = this.storage.ref(this.basePath);
     storageRef.child(name).delete();

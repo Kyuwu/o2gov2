@@ -11,16 +11,20 @@ export class ContractService {
 
 	constructor(private firestore: Firestore) {}
 
+	//sets current contract and scooter to null for a given user
 	deleteContract(user: User): Promise<void> {
 		let contract = null;
+		let scooter = null;
 		const document = doc(this.firestore, 'users', user.id);
 			return updateDoc(document, {
 				contract,
+				scooter
 			}
 		);
 	}
 
-	createContract(contract: Contract, scooter: Scooter, user: User): Promise<void> {
+	//creates a new scooter contract for given user
+	createContract(scooter: Scooter, contract: Contract,  user: User): Promise<void> {
 		const document = doc(this.firestore, 'users', user.id);
 			return updateDoc(document, {
 				contract,

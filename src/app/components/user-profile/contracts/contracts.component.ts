@@ -42,8 +42,8 @@ export class ContractsComponent implements OnInit {
       } else {
         this.currentUser = userfetch;
         localStorage.setItem('user', JSON.stringify(userfetch));
-        this.startDate = this.currentUser.service.start.toDate().toDateString()
-        this.endDate = this.currentUser.service.end.toDate().toDateString()
+        this.startDate = this.currentUser?.contract?.start.toDate().toDateString()
+        this.endDate = this.currentUser?.contract?.end.toDate().toDateString()
       }
     });
   }

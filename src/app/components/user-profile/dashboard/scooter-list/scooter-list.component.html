@@ -7,28 +7,8 @@
         <h1 class="text-center">SCOOTER CRUD</h1>
       </ion-text>
       <ion-grid>
-        <table mat-table [dataSource]="dataSource">
-          <ng-container matColumnDef="brand">
-            <th mat-header-cell *matHeaderCellDef>Brand</th>
-            <td mat-cell *matCellDef="let element">{{element.brand}}</td>
-          </ng-container>
-          <ng-container matColumnDef="licensePlate">
-            <th mat-header-cell *matHeaderCellDef>licensePlate</th>
-            <td mat-cell *matCellDef="let element">{{element.licensePlate}}</td>
-          </ng-container>
-          <ng-container matColumnDef="description">
-            <th mat-header-cell *matHeaderCellDef>Description</th>
-            <td mat-cell *matCellDef="let element">{{element.description}}</td>
-          </ng-container>
-          <ng-container matColumnDef="year">
-            <th mat-header-cell *matHeaderCellDef>Build year</th>
-            <td mat-cell *matCellDef="let element">{{element.year}}</td>
-          </ng-container>
-          <ng-container matColumnDef="price">
-            <th mat-header-cell *matHeaderCellDef>Rent Price per month</th>
-            <td mat-cell *matCellDef="let element">{{element.price}}</td>
-          </ng-container>
-          <ng-container matColumnDef="action">
+        <table mat-table [dataSource]="dataSource" class="headers">
+          <ng-container matColumnDef="action" >
             <th style="text-align: right;" mat-header-cell *matHeaderCellDef>
               <button mat-button color="primary" (click)="add()">Add scooter</button>
             </th>
@@ -36,6 +16,26 @@
               <button mat-button color="accent" (click)="edit(element)">Edit</button>
               <button mat-button color="warn" (click)="confirm(element)">Delete</button>
             </td>
+          </ng-container>
+          <ng-container matColumnDef="brand">
+            <th mat-header-cell *matHeaderCellDef>Brand</th>
+            <td mat-cell *matCellDef="let element"  class="mobile-label">{{element.brand}}</td>
+          </ng-container>
+          <ng-container matColumnDef="licensePlate">
+            <th mat-header-cell *matHeaderCellDef>licensePlate</th>
+            <td mat-cell *matCellDef="let element"  class="mobile-label">{{element.licensePlate}}</td>
+          </ng-container>
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef>Description</th>
+            <td mat-cell *matCellDef="let element"  class="mobile-label">{{element.description}}</td>
+          </ng-container>
+          <ng-container matColumnDef="year">
+            <th mat-header-cell *matHeaderCellDef>Build year</th>
+            <td mat-cell *matCellDef="let element"  class="mobile-label">{{element.year}}</td>
+          </ng-container>
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef>Rent Price per month</th>
+            <td mat-cell *matCellDef="let element"  class="mobile-label">{{element.price}}</td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

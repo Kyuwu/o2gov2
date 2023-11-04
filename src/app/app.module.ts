@@ -68,6 +68,7 @@ import { ConfirmationDialog } from './shared/components/confirm-dialog/confirm-d
 import { FileuploadService } from './shared/fileupload.service';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireModule } from '@angular/fire/compat';
+import { PlannedServicesComponent } from './planned-services/planned-services.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,7 +85,8 @@ import { AngularFireModule } from '@angular/fire/compat';
     ScooterListComponent,
     AddScooterComponent,
     EditScooterComponent,
-    ConfirmationDialog
+    ConfirmationDialog,
+    PlannedServicesComponent
   ],
   providers: [ScooterService, UserService, DataService, PhotoService, ScooterServiceLocal, FirestoreModule, AuthService, FileuploadService],
   bootstrap: [AppComponent],

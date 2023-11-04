@@ -5,8 +5,9 @@
     <div class="contract-profile">
       <ion-text class="header">
         <h1 class="text-center">SCOOTER CONTRACTS</h1>
+        <h3>Your current contracted scooter</h3>
       </ion-text>
-      <mat-accordion *ngIf="currentUser.scooter; else noScooter">
+      <mat-accordion *ngIf="currentUser?.scooter; else noScooter">
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -16,14 +17,16 @@
           </mat-expansion-panel-header>
           <ion-card>
             <ion-card-header id="#scooter-header">
-              Description: {{currentUser.scooter.description}}
-              Max km/h: {{currentUser.scooter.maxKmh}}
               <ion-card-subtitle>
                 <h3>
                   Startdate: {{startDate}}<br>
                   Enddate: {{endDate}}<br>
-                  Price per month: €{{currentUser.scooter.price}}
+                  Price per month: €{{currentUser?.scooter.price}}
                 </h3>
+                <h2>
+                  Description: {{currentUser?.scooter.description}}<br>
+                  Max km/h: {{currentUser?.scooter.maxKmh}}
+                </h2>
               </ion-card-subtitle>
             </ion-card-header>
             <ion-card-content>

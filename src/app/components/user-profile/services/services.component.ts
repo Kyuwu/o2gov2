@@ -19,6 +19,7 @@ import { AuthService } from 'src/app/shared/auth.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ConfirmationDialog } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { ServicesService } from 'src/app/shared/services.service';
+import { Service } from 'src/app/shared/models/service';
 
 
 @Injectable()
@@ -63,12 +64,16 @@ export class ServicesComponent implements OnInit {
   startDate: string;
   first: boolean = true;
   sub1: Subscription;
+  sub2: Subscription;
+  service: Service;
   confirmDialog: MatDialogRef<ConfirmationDialog>;
   constructor(public fb: FormBuilder, public auth: AuthService, public dialog: MatDialog, public router: Router, public db: ServicesService, public activatedRoute: ActivatedRoute ,public photoService: PhotoService) {
+    this.currentUser = JSON.parse(sessionStorage.getItem("user"));
     this.serviceForm = this.fb.group({
       start: ['', Validators.required],
       end: ['', Validators.required],
       reason: ['', Validators.required],
+      photo: ['', Validators.required]
     });
   }
 
@@ -77,13 +82,26 @@ export class ServicesComponent implements OnInit {
   }
 
   plan() {
-    this.db.createService(this.serviceForm.value, this.currentUser);
+    // create a new checkup with the given form and user
+    this.confirmDialog = this.dialog.open(ConfirmationDialog, {
+      disableClose: false
+    });
+    this.confirmDialog.componentInstance.confirmMessage = "Are you sure you want to apply a new checkup? (will overwrite your current one if you have one already)";
+    this.confirmDialog.afterClosed().subscribe(result => {
+      if(result) {
+        this.db.createService(this.serviceForm.value, this.currentUser);
+        this.serviceForm.reset();
+      }
+      this.confirmDialog = null;
+    });
   }
 
   addPhotoToGallery() {
     // add picture to the form
-    this.serviceForm.addControl('photo', new FormControl(this.photoService.photos[0]));
-    this.photoService.addNewToGallery();
+    this.photoService.getImage().finally(() => {
+      // only uploading 1 image for db quota
+      this.serviceForm.controls['photo'].setValue(this.photoService.photos[0]?.data);
+    });;
   }
 
   async ngOnInit() {
@@ -96,10 +114,17 @@ export class ServicesComponent implements OnInit {
       } else {
         this.currentUser = userfetch;
         localStorage.setItem('user', JSON.stringify(userfetch));
-        this.startDate = this.currentUser.service.start.toDate().toDateString()
-        this.endDate = this.currentUser.service.end.toDate().toDateString()
+        this.sub2 = this.db.getServiceById(userfetch)
+        .subscribe(servicefetch => {
+          // if the user doesn't exists, return to login page
+            this.service = servicefetch;
+            this.startDate = servicefetch?.start?.toDate().toDateString()
+            this.endDate = servicefetch?.end?.toDate().toDateString()
+            localStorage.setItem('service', JSON.stringify(servicefetch));
+        });
       }
     });
+
   }
 
 

@@ -4,7 +4,27 @@
       <ion-title>{{currentUser.email}}</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding">
+  <ion-content class="ion-padding" *ngIf="currentUser?.admin; else regularUser">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button (click)="home()" color="dark">Home</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button (click)="adminScooters()" color="dark">Scooters</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button (click)="adminServices()" color="dark">
+            Planned checkups</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  <ng-template #regularUser>
     <ion-grid>
       <ion-row>
         <ion-col size="12">
@@ -16,7 +36,7 @@
           <ion-button [disabled]="state.match('contracts')" (click)="contracts()" color="dark">Contracts</ion-button>
         </ion-col>
         <ion-col size="6">
-          <ion-button [disabled]="state.match('scooters')" (click)="scooters()" color="dark">Scooters</ion-button>
+          <ion-button [disabled]="state.match('scooters') || currentUser?.scooter" (click)="scooters()" color="dark">Scooters</ion-button>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -30,6 +50,6 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  </ion-content>
+  </ng-template>
   <ion-button color="light" (click)="logout()">LOGOUT</ion-button>
 </ion-menu>

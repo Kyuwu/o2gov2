@@ -1,0 +1,37 @@
+<app-menu [state]="'contracts'"></app-menu>
+<div class="ion-page" id="main-content">
+  <app-menu-header title="Contracts"></app-menu-header>
+  <ion-content [fullscreen]="true" class="vertical-center">
+    <div class="contract-profile">
+      <ion-text class="header">
+        <h1 class="text-center">PLANNED CHECKUPS</h1>
+        <h3>current checkups submitted by users</h3>
+      </ion-text>
+        <mat-accordion  *ngFor="let service of services">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{service?.email}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ion-card>
+              <ion-card-header id="#scooter-header">
+                <ion-card-subtitle>
+                  <h2>
+                    Reason: {{service?.reason}}<br>
+                    Pickup date: {{service?.start.toDate().toDateString()}}<br>
+                    Dropoff date: {{service?.end.toDate().toDateString()}}
+                  </h2>
+                </ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                <!-- <ion-button (click)="confirm()">STOP CONTRACT</ion-button> -->
+                <img [src]="service?.photo">
+              </ion-card-content>
+            </ion-card>
+          </mat-expansion-panel>
+        </mat-accordion>
+      <!-- <ion-button (click)="home()" color="light">BACK</ion-button> -->
+    </div>
+  </ion-content>
+</div>

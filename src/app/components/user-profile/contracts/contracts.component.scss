@@ -1,6 +1,6 @@
 .contract-profile {
-  left: 10%;
-  right: 10%;
+  padding-left: 10%;
+  padding-right: 10%;
   top: 30%;
 
   ion-grid ion-button {
@@ -16,7 +16,7 @@
     margin-bottom: 25px;
     margin-top: 25px;
   }
-  h3 {
+  h3, h2 {
     text-align: center; 
   }
 
@@ -31,7 +31,6 @@
     }
 
     ion-button {
-      margin: 10px;
       bottom: 0;
     }
   }

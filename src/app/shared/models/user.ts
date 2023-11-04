@@ -5,17 +5,17 @@ import {
 import { Service } from "./service";
 
 export class User {
-  id!: string;
+  id?: string;
   email!: string;
-  password!: string;
-  firstName!: string;
-  lastName!: string;
-  street!: string;
-  housenumber!: string;
-  postalCode!: string;
-  city!: string;
-  admin!: boolean;
-  scooter!: Scooter;
-  service!: Service;
-  contract!: Contract;
+  password?: string;
+  firstName?: string;
+  lastName?: string;
+  street?: string;
+  housenumber?: string;
+  postalCode?: string;
+  city?: string;
+  admin?: boolean;
+  scooter?: Scooter;
+  service?: Service;
+  contract?: Contract;
 }

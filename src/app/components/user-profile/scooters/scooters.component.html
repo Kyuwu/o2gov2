@@ -6,25 +6,25 @@
       <mat-step [stepControl]="scooterSelection">
         <ng-template matStepLabel>1. Choose your scooter</ng-template>
         <ion-card id="scooter-header">
-          <ion-card-content>
-            Brand: {{scooters[index].brand}}<br>
-            Description: {{scooters[index].description}}<br>
-            Licenseplate: {{scooters[index].licensePlate}}<br>
-            Price per month: {{scooters[index].price}}<br>
-            Build year: {{scooters[index].year}}
-            <ion-thumbnail slot="start">
-              <img src="{{scooters[index].photo}}" />
+          <ion-card-content *ngIf="scooters">
+            <h1>Brand: {{scooters[index]?.brand}}<br></h1>
+            Description: {{scooters[index]?.description}}<br>
+            Licenseplate: {{scooters[index]?.licensePlate}}<br>
+            Price per month: €{{scooters[index]?.price}}<br>
+            Build year: {{scooters[index]?.year}}
+            <ion-thumbnail style="width: 50vw; height: 100%;" slot="start">
+              <img src="{{scooters[index]?.photo}}" />
             </ion-thumbnail>          
           </ion-card-content>
         </ion-card>
         <ion-list>
           <form id="container" class="form-signin" [formGroup]="scooterSelection">
-            <ion-radio-group formControlName="scooter" [allowEmptySelection]="true" value="scooterSelection">
+            <ion-radio-group [allowEmptySelection]="true" value="scooterSelection">
               <ion-item *ngFor="let scooter of scooters; index as i" id="scooter-details">
                 <ion-thumbnail slot="start">
-                  <img src="{{scooter.photo}}" />
+                  <img src="{{scooter?.photo}}" />
                 </ion-thumbnail>
-                <ion-label>{{scooter.brand}}</ion-label>
+                <label>{{scooter?.brand}}</label>
                 <ion-radio (click)="submitScooter(i, scooter)" slot="end" value="{{scooter.licensePlate}}" class="scooter-radio"></ion-radio>
               </ion-item>
             </ion-radio-group>

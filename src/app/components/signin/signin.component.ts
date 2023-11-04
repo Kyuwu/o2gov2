@@ -38,7 +38,7 @@ export class SigninComponent {
 		await loading.dismiss();
 
 		if (user) {
-			this.router.navigateByUrl(`/user-profile`, { replaceUrl: true });
+			this.router.navigateByUrl(`/user-profile/${user.user.uid}`, { replaceUrl: true });
 			this.snack.add(`Welkom! ${user.user.email}`, ``);
 		} else {
 			this.snack.delete('Login failed, Please try again!', ``);

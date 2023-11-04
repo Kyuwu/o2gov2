@@ -2,17 +2,17 @@
   <div class="ion-page" id="main-content">
     <app-menu-header title="Contracts"></app-menu-header>
     <ion-content [fullscreen]="true" class="vertical-center">
-      <div class="service-profile">
+      <div class="service-profile ios android md">
         <ion-text class="header">
           <h1 class="text-center">SCOOTER SERVICE</h1>
         </ion-text>
-        <div *ngIf="currentUser.scooter; else noScooter">
-          <mat-accordion *ngIf="currentUser.service; else planService">
+        <div *ngIf="currentUser?.scooter; else noScooter">
+          <mat-accordion *ngIf="service?.email; else planService">
             <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  Scooter: {{currentUser.scooter.brand}} -
-                  Licenseplate {{currentUser.scooter.licensePlate}}
+                  Scooter: {{currentUser?.scooter.brand}} -
+                  Licenseplate {{currentUser?.scooter.licensePlate}}
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <ion-card>
@@ -22,8 +22,8 @@
                     Done with checkup: {{endDate}}
                   </h3>
                 </ion-card-header>
-                <h3>Reason checkup: {{currentUser.service.reason}}</h3>
-                <img src={{currentUser.service.photo}}>
+                <h3>Reason checkup: {{this.service?.reason}}</h3>
+                <img src={{this.service?.photo}}>
               </ion-card>
             </mat-expansion-panel>
           </mat-accordion>
@@ -31,11 +31,6 @@
         <ng-template #planService>
           <h3>NO SERVICE PLANNED YET</h3>
           <ion-content>
-            <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-              <ion-fab-button (click)="addPhotoToGallery()">
-                <ion-icon name="camera"></ion-icon>
-              </ion-fab-button>
-            </ion-fab>
           </ion-content>
           <ion-grid>
             <ion-row>
@@ -45,7 +40,7 @@
             </ion-row>
           </ion-grid>
           <form [formGroup]="serviceForm">
-            <mat-form-field appearance="fill">
+            <mat-form-field style="width: 100%;" appearance="fill">
               <mat-label>Service start, 5 days needed for checkups</mat-label>
               <mat-date-range-input [rangePicker]="picker">
                 <input matStartDate formControlName="start" placeholder="Start date">
@@ -54,13 +49,17 @@
               <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-date-range-picker #picker></mat-date-range-picker>
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field style="width: 100%;" appearance="fill">
               <mat-label>Reason for checkup</mat-label>
               <input matInput formControlName="reason">
             </mat-form-field>
+            <ion-fab slot="fixed">
+              <ion-fab-button (click)="addPhotoToGallery()">
+                <ion-icon name="camera"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
             <ion-button  [disabled]="!serviceForm.valid" (click)="plan()">PLAN SERVICE</ion-button>
           </form>
-          <ion-button (click)="home()" color="light">BACK</ion-button>
         </ng-template>
       </div>
       <ng-template #noScooter>

@@ -37,4 +37,9 @@ export class DashboardComponent implements OnInit {
   scooters() {
     this.router.navigate([`/dashboard/${this.currentUser.id}/scooters`])
   }
+
+  
+  serviced() {
+    this.router.navigate([`/dashboard/${this.currentUser.id}/services`])
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { EditScooterComponent } from './edit-scooter/edit-scooter.component';
@@ -6,6 +6,7 @@ import { SnackbarService } from 'src/app/shared/snackbar.service';
 import { AddScooterComponent } from './add-scooter/add-scooter.component';
 import { ScooterService } from 'src/app/shared/scooters.service';
 import { ConfirmationDialog } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-scooter-list',
@@ -14,7 +15,7 @@ import { ConfirmationDialog } from 'src/app/shared/components/confirm-dialog/con
 })
 export class ScooterListComponent implements OnInit {
 
-  displayedColumns: string[] = ['brand', 'licensePlate','description','year', 'price', 'action'];
+  displayedColumns: string[] = ['action','brand', 'licensePlate','description','year', 'price'];
   dataSource = new MatTableDataSource();
   confirmDialog: MatDialogRef<ConfirmationDialog>;
   constructor(private db: ScooterService, public dialog: MatDialog, public snackbar: SnackbarService, public dialogRef: MatDialogRef < EditScooterComponent > ) { }
@@ -73,5 +74,11 @@ export class ScooterListComponent implements OnInit {
         // })
         // .catch(err => console.log(err));
     }
+  }
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
 }

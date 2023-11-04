@@ -2,10 +2,7 @@ import { Injectable } from '@angular/core';
 import { Auth, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signOut } from '@angular/fire/auth';
 import { User } from './models/user';
 import { Observable, map } from 'rxjs';
-import { doc, collection, setDoc, Firestore, docSnapshots, updateDoc, deleteDoc } from '@angular/fire/firestore';
-import { Scooter } from './models/scooter';
-import { Contract } from './models/contract';
-import { Service } from './models/service';
+import { doc, collection, setDoc, Firestore, docSnapshots, updateDoc } from '@angular/fire/firestore';
 import { SnackbarService } from './snackbar.service';
 import { Router } from '@angular/router';
 
@@ -16,6 +13,7 @@ export class AuthService {
 
 	constructor(private auth: Auth, private firestore: Firestore, private snack: SnackbarService, private router: Router) {}
 
+	//registers an user from given form and makes a new entry in the database with the userid and given form data
 	async register(userform: User) {
 		try {
 			const user = await createUserWithEmailAndPassword(this.auth, userform.email, userform.password);
@@ -28,6 +26,7 @@ export class AuthService {
 		}
 	}
 		
+	//logs in with registered user
 	async login({ email, password }) {
 		try {
 			const user = await signInWithEmailAndPassword(this.auth, email, password);
@@ -38,6 +37,7 @@ export class AuthService {
 		}
 	}
 
+	//no user bound to google account, just for showcase purpose
 	async google() {
 		try {
 			const user = await signInWithPopup(this.auth, new GoogleAuthProvider());

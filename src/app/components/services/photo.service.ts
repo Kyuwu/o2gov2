@@ -35,32 +35,50 @@ export class PhotoService {
 
   // other code
 
-  private async readAsBase64(photo: Photo) {
-    // "hybrid" will detect Cordova or Capacitor
-    if (this.platform.is('hybrid')) {
-      // Read the file into base64 format
-      const file = await Filesystem.readFile({
-        path: photo.path
-      });
+  private async readAsBase64(cameraPhoto: Photo) {
+    // Fetch the photo, read as a blob, then convert to base64 format
+    const response = await fetch(cameraPhoto.webPath!);
+    const blob = await response.blob();
   
-      return file.data;
-    }
-    else {
-      // Fetch the photo, read as a blob, then convert to base64 format
-      const response = await fetch(photo.webPath);
-      const blob = await response.blob();
-      const blobToBase64 = blob => {
-        const reader = new FileReader();
-        reader.readAsDataURL(blob);
-        return new Promise(resolve => {
-          reader.onloadend = () => {
-            resolve(reader.result);
-          };
-        });
-      };
-      return await blobToBase64(blob) as string;
-    }
+    return await this.convertBlobToBase64(blob) as string;  
   }
+  
+  convertBlobToBase64 = (blob: Blob) => new Promise((resolve, reject) => {
+    const reader = new FileReader;
+    reader.onerror = reject;
+    reader.onload = () => {
+        resolve(reader.result);
+    };
+    reader.readAsDataURL(blob);
+  });
+
+
+  // private async readAsBase64(photo: Photo) {
+  //   // "hybrid" will detect Cordova or Capacitor
+  //   if (this.platform.is('hybrid')) {
+  //     // Read the file into base64 format
+  //     const file = await Filesystem.readFile({
+  //       path: photo.path
+  //     });
+  
+  //     return file.data;
+  //   }
+  //   else {
+  //     // Fetch the photo, read as a blob, then convert to base64 format
+  //     const response = await fetch(photo.webPath);
+  //     const blob = await response.blob();
+  //     const blobToBase64 = blob => {
+  //       const reader = new FileReader();
+  //       reader.readAsDataURL(blob);
+  //       return new Promise(resolve => {
+  //         reader.onloadend = () => {
+  //           resolve(reader.result);
+  //         };
+  //       });
+  //     };
+  //     return await blobToBase64(blob) as string;
+  //   }
+  // }
  
 // Save picture to file on device
 private async savePicture(photo: Photo) {
@@ -78,6 +96,7 @@ private async savePicture(photo: Photo) {
   if (this.platform.is('hybrid')) {
     return {
       filepath: savedFile.uri,
+      data: base64Data,
       webviewPath: Capacitor.convertFileSrc(savedFile.uri),
     };
   }
@@ -85,12 +104,13 @@ private async savePicture(photo: Photo) {
     //return photo to service to show
     return {
       filepath: fileName,
-      webviewPath: photo.webPath
+      webviewPath: photo.webPath,
+      data: base64Data,
     };
   }
 }
 
-  public async addNewToGallery() {
+  public async getImage() {
     // Take a photo
     const capturedPhoto = await Camera.getPhoto({
       resultType: CameraResultType.Uri, // file-based data; provides best performance
@@ -110,4 +130,5 @@ private async savePicture(photo: Photo) {
 export interface UserPhoto {
   filepath: string;
   webviewPath ? : string;
+  data? : string;
 }

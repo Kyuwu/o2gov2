@@ -23,6 +23,7 @@ export class MenuComponent {
     this.router.navigate(['/']);
   }
 
+  
   home() {
     this.router.navigate([`/user-profile/${this.currentUser.id}`])  
   }
@@ -37,5 +38,11 @@ export class MenuComponent {
   }
   settings() {
     this.router.navigate([`/user-profile/${this.currentUser.id}/settings`])
+  }
+  adminServices() {
+    this.router.navigate([`/dashboard/${this.currentUser.id}/services`])
+  }
+  adminScooters() {
+    this.router.navigate([`/dashboard/${this.currentUser.id}/scooters`])
   }
 }

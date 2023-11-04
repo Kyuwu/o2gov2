@@ -1,47 +1,58 @@
 <h2 mat-dialog-title>Add scooter</h2>
 <mat-dialog-content>
   <form [formGroup]="add">
-    <mat-form-field appearance="fill" class="full-width">
-      <mat-label>Brand</mat-label>
-      <input formControlName="brand" matInput>
-    </mat-form-field>
-    <mat-form-field appearance="fill" class="full-width">
-      <mat-label>Price</mat-label>
-      <input type="number" formControlName="price" matInput>
-    </mat-form-field>
-    <mat-form-field appearance="fill" class="full-width">
-      <mat-label>Year</mat-label>
-      <input type="number" formControlName="year" matInput>
-    </mat-form-field>
-    <mat-form-field appearance="fill" class="full-width">
-      <mat-label>Max km/h</mat-label>
-      <input type="number" formControlName="maxKmh" matInput>
-    </mat-form-field>
-    <mat-form-field appearance="fill" class="full-width">
-      <mat-label>License plate</mat-label>
-      <input formControlName="licensePlate" matInput>
-    </mat-form-field>
-    <mat-form-field appearance="fill" class="full-width">
-      <mat-label>Description</mat-label>
-      <input formControlName="description" matInput>
-    </mat-form-field>
-    <div class="img-banner">
-      <mat-expansion-panel [disabled]="croppedImage ==''">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Click to see image
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <div class="img-div-wrapper row">
-          <div class="img-wrapper">
-            <img name="image" class="column" [src]="croppedImage">
-            <image-cropper class="column" [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
-              [aspectRatio]="2/ 2" format="webp" (imageCropped)="imageCropped($event)" (cropperReady)="cropperReady()">
-            </image-cropper>
-          </div>
+    <table [cellSpacing]="0">
+      <tr>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Brand</mat-label>
+          <input formControlName="brand" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Price</mat-label>
+          <input type="number" formControlName="price" matInput>
+        </mat-form-field>
+      </tr>
+      <tr>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Year</mat-label>
+          <input type="number" formControlName="year" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Max km/h</mat-label>
+          <input type="number" formControlName="maxKmh" matInput>
+        </mat-form-field>
+      </tr>
+      <tr>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>License plate</mat-label>
+          <input formControlName="licensePlate" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Description</mat-label>
+          <input formControlName="description" matInput>
+        </mat-form-field>
+      </tr>
+      <tr>
+        <div class="img-banner">
+          <mat-expansion-panel [disabled]="croppedImage ===''">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Click to see image
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="img-div-wrapper row">
+              <div class="img-wrapper">
+                <img name="image" class="column" [src]="croppedImage">
+                <image-cropper class="column" [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                  [aspectRatio]="2/ 2" format="webp" (imageCropped)="imageCropped($event)" (cropperReady)="cropperReady()">
+                </image-cropper>
+              </div>
+            </div>
+          </mat-expansion-panel>
         </div>
-      </mat-expansion-panel>
-    </div>
+      </tr>
+    </table>
+    
     <mat-dialog-actions>
       <input style="width: 100%;" #imageInput id="file-upload" type="file"
         accept="image/x-png,image/jpeg,image/jpg,image/gif" (change)="fileChangeEvent($event)" #fileUpload>

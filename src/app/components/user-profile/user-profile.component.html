@@ -4,7 +4,7 @@
   <ion-content [fullscreen]="true" class="vertical-center">
     <div class="user-profile">
       <ion-text class="header">
-        <h1 class="text-center">WELCOME</h1>
+        <h1 class="text-center">WELCOME {{currentUser?.firstName}} {{currentUser?.lastName}}</h1>
       </ion-text>
       <ion-grid>
         <ion-row>
@@ -12,7 +12,7 @@
             <ion-button (click)="contracts()" color="dark">Contracts</ion-button>
           </ion-col>
           <ion-col size="6">
-            <ion-button (click)="scooters()" color="dark">Scooters</ion-button>
+            <ion-button (click)="scooters()" [disabled]="currentUser?.scooter" color="dark">Scooters</ion-button>
           </ion-col>
         </ion-row>
         <ion-row>
