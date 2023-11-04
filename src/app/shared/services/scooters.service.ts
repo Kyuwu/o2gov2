@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SnackbarService } from './snackbar.service';
 import { Firestore, doc, collection, setDoc, deleteDoc, updateDoc, collectionData } from '@angular/fire/firestore';
-import { Scooter } from './models/scooter';
+import { Scooter } from '../models/scooter';
 import { Observable, finalize, map } from 'rxjs';
 import { base64ToFile } from 'ngx-image-cropper';
 import { AngularFireStorage } from '@angular/fire/compat/storage';

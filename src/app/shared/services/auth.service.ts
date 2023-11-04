@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Auth, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signOut } from '@angular/fire/auth';
-import { User } from './models/user';
+import { User } from '../models/user';
 import { Observable, map } from 'rxjs';
 import { doc, collection, setDoc, Firestore, docSnapshots, updateDoc } from '@angular/fire/firestore';
 import { SnackbarService } from './snackbar.service';

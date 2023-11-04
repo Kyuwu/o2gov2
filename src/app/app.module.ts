@@ -26,7 +26,7 @@ import {
 } from './shared/angular-mat.module';
 import {
   ScooterService
-} from './shared/scooters.service';
+} from './shared/services/scooters.service';
 import {
   ScooterServiceLocal
 } from './shared/local/scooter.service';
@@ -45,7 +45,7 @@ import {
 import {
   EditUserComponent
 } from './components/edit-user/edit-user.component';
-import { UserService } from './shared/user.service';
+import { UserService } from './shared/services/user.service';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore, FirestoreModule } from '@angular/fire/firestore';
@@ -57,15 +57,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuHeaderComponent } from './components/menu-header/menu-header.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { DataService } from './components/services/data.service';
-import { PhotoService } from './components/services/photo.service';
-import { AuthService } from './shared/auth.service';
+import { DataService } from './shared/services/data.service';
+import { PhotoService } from './shared/services/photo.service';
+import { AuthService } from './shared/services/auth.service';
 import { DashboardComponent } from './components/user-profile/dashboard/dashboard.component';
 import { ScooterListComponent } from './components/user-profile/dashboard/scooter-list/scooter-list.component';
 import { AddScooterComponent } from './components/user-profile/dashboard/scooter-list/add-scooter/add-scooter.component';
 import { EditScooterComponent } from './components/user-profile/dashboard/scooter-list/edit-scooter/edit-scooter.component';
 import { ConfirmationDialog } from './shared/components/confirm-dialog/confirm-dialog.component';
-import { FileuploadService } from './shared/fileupload.service';
+import { FileuploadService } from './shared/services/fileupload.service';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireModule } from '@angular/fire/compat';
 import { PlannedServicesComponent } from './planned-services/planned-services.component';

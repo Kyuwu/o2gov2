@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { User } from './models/user';
+import { User } from '../models/user';
 import { doc, Firestore, updateDoc } from '@angular/fire/firestore';
-import { Contract } from './models/contract';
-import { Scooter } from './models/scooter';
+import { Contract } from '../models/contract';
+import { Scooter } from '../models/scooter';
 
 @Injectable({
   providedIn: 'root',

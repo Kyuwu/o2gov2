@@ -15,7 +15,7 @@ import {
 import {
   SnackbarService
 } from './snackbar.service';
-import { User } from './models/user';
+import { User } from '../models/user';
 @Injectable({
   providedIn: 'root',
 })

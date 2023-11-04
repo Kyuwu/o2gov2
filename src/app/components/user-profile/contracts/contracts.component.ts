@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/shared/auth.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { ConfirmationDialog } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
-import { ContractService } from 'src/app/shared/contract.service';
+import { ContractService } from 'src/app/shared/services/contract.service';
 import { User } from 'src/app/shared/models/user';
 
 @Component({

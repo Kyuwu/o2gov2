@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { User } from './models/user';
+import { User } from '../models/user';
 import { collection, collectionData, doc, docSnapshots, Firestore, setDoc, updateDoc } from '@angular/fire/firestore';
-import { Service } from './models/service';
+import { Service } from '../models/service';
 import { base64ToFile } from 'ngx-image-cropper';
 import { finalize, map, Observable } from 'rxjs';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { SnackbarService } from './snackbar.service';
-import { PhotoService } from '../components/services/photo.service';
+import { PhotoService } from './photo.service';
 
 @Injectable({
   providedIn: 'root',

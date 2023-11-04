@@ -1,9 +1,9 @@
 
-import { SnackbarService } from 'src/app/shared/snackbar.service';
+import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/shared/auth.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { AlertController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 

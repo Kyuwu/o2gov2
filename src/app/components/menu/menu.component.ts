@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { AuthService } from "src/app/shared/auth.service";
+import { AuthService } from "src/app/shared/services/auth.service";
 import { User } from "src/app/shared/models/user";
 
 

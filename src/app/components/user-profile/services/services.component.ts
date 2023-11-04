@@ -13,12 +13,12 @@ import {
 
 import {
   User} from 'src/app/shared/models/user';
-import { PhotoService } from '../../services/photo.service';
+import { PhotoService } from '../../../shared/services/photo.service';
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/shared/auth.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ConfirmationDialog } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
-import { ServicesService } from 'src/app/shared/services.service';
+import { ServicesService } from 'src/app/shared/services/services.service';
 import { Service } from 'src/app/shared/models/service';
 
 

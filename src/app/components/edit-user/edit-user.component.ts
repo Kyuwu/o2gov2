@@ -1,9 +1,9 @@
 import { Component } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
-import { AuthService } from "../../shared/auth.service";
+import { AuthService } from "../../shared/services/auth.service";
 import { User } from "src/app/shared/models/user";
-import { SnackbarService } from "src/app/shared/snackbar.service";
+import { SnackbarService } from "src/app/shared/services/snackbar.service";
 
 
 @Component({

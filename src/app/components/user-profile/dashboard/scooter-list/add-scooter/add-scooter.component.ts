@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ImageCroppedEvent, LoadedImage } from 'ngx-image-cropper';
 import { Scooter } from 'src/app/shared/models/scooter';
-import { ScooterService } from 'src/app/shared/scooters.service';
-import { SnackbarService } from 'src/app/shared/snackbar.service';
+import { ScooterService } from 'src/app/shared/services/scooters.service';
+import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 
 @Component({
   selector: 'app-add-scooter',

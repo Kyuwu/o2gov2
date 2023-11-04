@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { delay } from 'rxjs';
-import { AuthService } from './shared/auth.service';
-import { LoadingService } from './shared/loader.service';
+import { AuthService } from './shared/services/auth.service';
+import { LoadingService } from './shared/services/loader.service';
 
 @Component({
   selector: 'app-root',

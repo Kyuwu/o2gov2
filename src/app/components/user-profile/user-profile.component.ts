@@ -6,7 +6,7 @@ import {
   User} from 'src/app/shared/models/user';
 import {
   AuthService
-} from './../../shared/auth.service';
+} from '../../shared/services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 @Component({

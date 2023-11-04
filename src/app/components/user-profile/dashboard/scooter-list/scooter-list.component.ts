@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { EditScooterComponent } from './edit-scooter/edit-scooter.component';
-import { SnackbarService } from 'src/app/shared/snackbar.service';
+import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 import { AddScooterComponent } from './add-scooter/add-scooter.component';
-import { ScooterService } from 'src/app/shared/scooters.service';
+import { ScooterService } from 'src/app/shared/services/scooters.service';
 import { ConfirmationDialog } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { MatPaginator } from '@angular/material/paginator';
 

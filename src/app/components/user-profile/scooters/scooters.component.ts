@@ -9,13 +9,13 @@ import {
 import {
   Router
 } from '@angular/router';
-import { AuthService } from 'src/app/shared/auth.service';
-import { ContractService } from 'src/app/shared/contract.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { ContractService } from 'src/app/shared/services/contract.service';
 import {
   Scooter
 } from 'src/app/shared/models/scooter';
 import { User } from 'src/app/shared/models/user';
-import { ScooterService } from 'src/app/shared/scooters.service';
+import { ScooterService } from 'src/app/shared/services/scooters.service';
 
 
 @Component({

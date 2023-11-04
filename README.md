@@ -6,3 +6,9 @@ To run, you'll need:<br>
 4. ionic serve to showcase our app in a emulated web environment.
 5. or simply checkout my website: http://test.kyuwu.com.
 6. install the included .apk on your android phone located in the root folder.
+
+# Testusers
+the admin@o2go.nl is the only admin in my database so check that account out for the scooter CRUD and planned services!
+
+1. test@o2go.nl pw: Test123!
+2. adming@o2go.nl pw: Admin123!
